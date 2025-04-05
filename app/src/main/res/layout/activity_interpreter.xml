@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
-    android:id="@+id/main"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Interpreter">
 
     <!-- AppBar -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
 
         <LinearLayout
@@ -30,22 +29,18 @@
                     android:id="@+id/toolbar_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
                     android:text="Interpreter"
                     android:textColor="@android:color/black"
                     android:textSize="33sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
             </androidx.appcompat.widget.Toolbar>
 
-            <!-- Bottom border line -->
             <!-- Bottom border line (80% width) -->
             <View
                 android:layout_width="350dp"
                 android:layout_height="1dp"
-                android:background="@android:color/darker_gray"
-                android:layout_gravity="center_horizontal"/>
-
-
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/darker_gray"/>
         </LinearLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -60,37 +55,45 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:gravity="center_horizontal">
 
-        <!-- Your UI Components here -->
+        <!-- Text Input Field -->
         <EditText
             android:id="@+id/interpreterInput"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:hint="Enter Text here..."/>
 
-
+        <!-- Convert Button -->
         <FrameLayout
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/convert"
-            >
-        <Button
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:background="@android:color/transparent"
-            android:text="Convert"/>
+            android:background="@drawable/convert">
+
+            <Button
+                android:id="@+id/convertButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:text="Convert"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"/>
         </FrameLayout>
-        <LinearLayout
+
+        <!-- Sign Container -->
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:layout_marginTop="50dp"
-            android:background="@drawable/border"
-            >
+            android:fillViewport="true">
 
-        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/signContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:orientation="vertical"/>
+        </ScrollView>
+
     </LinearLayout>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
