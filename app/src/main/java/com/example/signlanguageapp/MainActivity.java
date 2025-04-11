@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Navigate to Interpreter Activity
+//         Navigate to Interpreter Activity
         Button interpreterButton = findViewById(R.id.interpreter);
         interpreterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }
 }

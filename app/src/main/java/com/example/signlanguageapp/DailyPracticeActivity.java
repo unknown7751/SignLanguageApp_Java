@@ -73,7 +73,11 @@ public class DailyPracticeActivity extends AppCompatActivity {
 
         // Check answer
         if (userAnswer.equals(correctAnswers[currentQuestionIndex])) {
+            Toast.makeText(this,"Correct!",Toast.LENGTH_SHORT).show();
             score++;
+        }
+        else{
+            Toast.makeText(this,"Incorrect!",Toast.LENGTH_SHORT).show();
         }
 
         // Update Score
