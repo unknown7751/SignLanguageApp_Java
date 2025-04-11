@@ -65,7 +65,7 @@ public class Interpreter extends AppCompatActivity {
                     imageView.setImageResource(imageResId);
 
                     // Set fixed small size for each image
-                    int size = 100; // Adjust size as needed
+                    int size = 200; // Adjust size as needed
                     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
                     params.setMargins(5, 5, 5, 5); // Add spacing
                     imageView.setLayoutParams(params);

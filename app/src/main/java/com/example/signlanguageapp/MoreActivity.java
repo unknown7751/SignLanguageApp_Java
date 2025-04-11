@@ -1,13 +1,12 @@
 package com.example.signlanguageapp;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.content.Intent;
+import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,11 +29,12 @@ public class MoreActivity extends AppCompatActivity {
 
         videoTitle.setText("Emergency Sign Language Guide");
 
-        // Set video
+        // Set up video (no auto-start)
         Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.emergency_sign);
         videoView.setVideoURI(videoUri);
-        videoView.setMediaController(new MediaController(this));
-        videoView.start();
+        MediaController mediaController = new MediaController(this);
+        mediaController.setAnchorView(videoView);
+        videoView.setMediaController(mediaController);
 
         // Set links
         link1.setOnClickListener(v -> openLink("https://www.handspeak.com"));
