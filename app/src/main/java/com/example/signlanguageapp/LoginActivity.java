@@ -40,14 +40,12 @@ public class LoginActivity extends AppCompatActivity {
 
             if (dbHelper.checkUserCredentials(username, password)) {
                 Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                SharedPreferences prefs = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("isLoggedIn", true);
+                editor.apply();
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
-                        .edit()
-                        .putBoolean("isLoggedIn", true)
-                        .apply();
-
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                finish();
+                finish(); // optional: prevent returning to login on back press
             } else {
                 Toast.makeText(LoginActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
             }

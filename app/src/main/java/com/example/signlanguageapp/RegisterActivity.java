@@ -1,6 +1,7 @@
 package com.example.signlanguageapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,16 +40,13 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             } else if (dbHelper.registerUser(username, password)) {
                 Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
+                SharedPreferences prefs = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("isLoggedIn", true);
+                editor.apply();
+                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                finish(); // optional: prevent returning to login on back press
 
-                // ⬇️ Save login state
-                getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
-                        .edit()
-                        .putBoolean("isLoggedIn", true)
-                        .apply();
-
-                // Go directly to HomeActivity instead of Login
-                startActivity(new Intent(this, MainActivity.class));
-                finish();
             } else {
                 Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
             }

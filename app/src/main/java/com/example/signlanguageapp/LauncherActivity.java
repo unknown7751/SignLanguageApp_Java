@@ -12,21 +12,17 @@ public class LauncherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         SharedPreferences prefs = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-        boolean isFirstLaunch = prefs.getBoolean("isFirstLaunch", true);
+        boolean isLoggedIn = prefs.getBoolean("isLoggedIn", false); // default is false
 
-        if (isFirstLaunch) {
-            // First time launching, go to LoginActivity
-            startActivity(new Intent(this, LoginActivity.class));
-
-            // Set the flag to false so next time it goes to MainActivity
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean("isFirstLaunch", false);
-            editor.apply();
-        } else {
-            // Not the first launch, go to MainActivity
+        if (isLoggedIn) {
+            // User already logged in, go to MainActivity
             startActivity(new Intent(this, MainActivity.class));
+        } else {
+            // User not logged in yet, go to LoginActivity
+            startActivity(new Intent(this, LoginActivity.class));
         }
 
-        finish(); // close the LauncherActivity
+        finish(); // close LauncherActivity
     }
 }
+
