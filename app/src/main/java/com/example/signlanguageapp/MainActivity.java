@@ -68,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button commonWordsButton = findViewById(R.id.commonWords);
+        commonWordsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CommonWordsActivity.class);
+            startActivity(intent);
+        });
 
 
     }

@@ -38,6 +38,7 @@
 
     <activity android:name=".DailyPracticeActivity"/>
         <activity android:name=".MoreActivity"/>
+        <activity android:name=".CommonWordsActivity"/>
 
 
     </application>
