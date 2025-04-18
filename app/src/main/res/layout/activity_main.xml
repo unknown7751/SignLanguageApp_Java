@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- AppBar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:text="Ready to Sign ?"
+                    android:textColor="@android:color/black"
+                    android:textSize="33sp"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <!-- Bottom border line -->
+            <!-- Bottom border line (80% width) -->
+            <View
+                android:layout_width="350dp"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_gravity="center_horizontal"/>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Your UI Components here -->
+        <LinearLayout
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                <FrameLayout
+                    android:elevation="12dp"
+                    android:layout_width="170dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="190dp"
+                    android:background="@drawable/fs">
+
+                    <Button
+                        android:id="@+id/fingerspelling"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="Fingerspelling"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"/>
+                </FrameLayout>
+
+
+                <FrameLayout
+                    android:elevation="12dp"
+                    android:layout_width="170dp"
+                    android:layout_height="190dp"
+                    android:background="@drawable/cw"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="12dp"
+                    android:padding="12dp">
+                    <Button
+                        android:id="@+id/commonWords"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:padding="12dp"
+                        android:text="Common Words"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:gravity="center_horizontal">
+
+            <FrameLayout
+                android:elevation="12dp"
+                android:layout_width="170dp"
+                android:layout_height="190dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/dp"
+                android:padding="12dp">
+                <Button
+                    android:id="@+id/dailyPractice"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:padding="12dp"
+                    android:text="Daily Practice"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </FrameLayout>
+            <FrameLayout
+                android:elevation="12dp"
+                android:layout_width="170dp"
+                android:layout_height="190dp"
+                android:background="@drawable/interpreter"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="12dp"
+                android:padding="12dp">
+                <Button
+                    android:id="@+id/interpreter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:padding="12dp"
+                    android:text="Interpreter"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </FrameLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="More Sign Language"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <View
+                android:layout_marginTop="12dp"
+                android:layout_width="375dp"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_gravity="center_horizontal"/>
+            <Button
+                android:id="@+id/moreB1"
+                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="@android:color/darker_gray"
+                android:text="Sign Language and Deaf Culture"
+                android:textSize="16sp"
+                android:gravity="start"/>
+            <View
+                android:layout_width="375dp"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_gravity="center_horizontal"/>
+            <Button
+                android:id="@+id/moreB2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@android:color/transparent"
+                android:textSize="16sp"
+                android:textColor="@android:color/darker_gray"
+                android:gravity="start"
+                android:text="Sign Language around the world"/>
+            <View
+                android:layout_width="375dp"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_gravity="center_horizontal"/>
+
+            <Button
+                android:id="@+id/moreB3"
+                android:background="@android:color/transparent"
+                android:textSize="16sp"
+                android:textColor="@android:color/darker_gray"
+                android:gravity="start"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="More"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
