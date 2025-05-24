@@ -1,3 +1,4 @@
+
 package com.example.signlanguageapp;
 
 import android.content.Intent;
@@ -29,14 +30,24 @@ public class MoreActivity extends AppCompatActivity {
 
         videoTitle.setText("Emergency Sign Language Guide");
 
-        // Set up video (no auto-start)
+        // Setup video URI
         Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.emergency_sign);
         videoView.setVideoURI(videoUri);
+
+        // Add media controls
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
 
-        // Set links
+        // Autoplay and loop
+        videoView.setOnPreparedListener(mp -> {
+            mp.setLooping(true); // loop video
+            videoView.start();   // autoplay
+        });
+
+        videoView.setMediaController(null);
+
+        // Set useful links
         link1.setOnClickListener(v -> openLink("https://www.handspeak.com"));
         link2.setOnClickListener(v -> openLink("https://www.startasl.com"));
         link3.setOnClickListener(v -> openLink("https://www.signlanguage101.com"));
@@ -46,3 +57,5 @@ public class MoreActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(intent);
     }
+
+}

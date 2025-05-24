@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -15,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class WordVideoAdapter extends RecyclerView.Adapter<WordVideoAdapter.WordViewHolder> {
-    private Context context;
-    private List<WordModel> wordList;
+    private final Context context;
+    private final List<WordModel> wordList;
 
     public WordVideoAdapter(Context context, List<WordModel> wordList) {
         this.context = context;
@@ -35,16 +34,15 @@ public class WordVideoAdapter extends RecyclerView.Adapter<WordVideoAdapter.Word
         WordModel word = wordList.get(position);
         holder.wordText.setText(word.getWord());
 
-        // Set video URI
         Uri uri = Uri.parse("android.resource://" + context.getPackageName() + "/" + word.getVideoResId());
         holder.wordVideo.setVideoURI(uri);
+        holder.wordVideo.setMediaController(null);
 
-        // Attach media controller
-        MediaController mediaController = new MediaController(context);
-        mediaController.setAnchorView(holder.wordVideo);
-        holder.wordVideo.setMediaController(mediaController);
+        holder.wordVideo.setOnPreparedListener(mp -> {
+            mp.setLooping(true);
+            holder.wordVideo.start();
+        });
 
-        // Play video when clicked
         holder.wordVideo.setOnClickListener(v -> {
             if (holder.wordVideo.isPlaying()) {
                 holder.wordVideo.pause();
@@ -52,9 +50,6 @@ public class WordVideoAdapter extends RecyclerView.Adapter<WordVideoAdapter.Word
                 holder.wordVideo.start();
             }
         });
-
-        // Reset the video to start when finished
-        holder.wordVideo.setOnCompletionListener(mp -> holder.wordVideo.seekTo(0));
     }
 
     @Override
@@ -62,7 +57,7 @@ public class WordVideoAdapter extends RecyclerView.Adapter<WordVideoAdapter.Word
         return wordList.size();
     }
 
-    public static class WordViewHolder extends RecyclerView.ViewHolder {
+    static class WordViewHolder extends RecyclerView.ViewHolder {
         TextView wordText;
         VideoView wordVideo;
 
