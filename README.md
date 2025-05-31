@@ -11,10 +11,6 @@ SignLanguageApp is an Android application designed to help users learn and pract
 - **Interpreter:** Convert typed text into a sequence of sign images.
 - **More Resources:** Access external links and emergency sign language guides.
 
-## Screenshots
-
-*(Add screenshots of your app here)*
-
 ## Getting Started
 
 ### Prerequisites
