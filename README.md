@@ -1,6 +1,8 @@
 # SignLanguageApp
 
-SignLanguageApp is an Android application designed to help users learn and practice sign language. It provides features such as fingerspelling, common words with video demonstrations, daily practice quizzes, and an interpreter that converts text to sign images.
+SignLanguageApp is an Android application designed to help users learn and practice sign language. It provides features such as fingerspelling, common words with video demonstrations, daily practice quizzes, and an interpreter that converts text to sign images.<br/>
+
+https://github.com/user-attachments/assets/54fae35c-899a-498f-b0e4-3a4295d682ad
 
 ## Features
 
